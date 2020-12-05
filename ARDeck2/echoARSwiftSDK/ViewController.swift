@@ -80,7 +80,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     // Override to create and configure nodes for anchors added to the view's session.
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         if let planeAnchor = anchor as? ARPlaneAnchor {
-        let plane = SCNPlane(width: CGFloat(planeAnchor.extent.x), height: CGFloat(planeAnchor.extent.z)) plane.firstMaterial?.diffuse.contents = UIColor(white: 1, alpha: 0.75)
+        let plane = SCNPlane(width: CGFloat(planeAnchor.extent.x), height: CGFloat(planeAnchor.extent.z))
+        plane.firstMaterial?.diffuse.contents = UIColor(white: 1, alpha: 0.75)
 
         let planeNode = SCNNode(geometry: plane)
 
@@ -91,8 +92,18 @@ class ViewController: UIViewController, ARSCNViewDelegate {
       
         //save plane (so it can be edited later)
         planes.append(planeNode)
-    
-    }
+            
+        if !isSceneRendered {
+            isSceneRendered = true
+            e.loadSceneFromEntryID(entryID: echoImgEntryId, completion: { (scene) in
+                guard let selectedNode = scene.rootNode.childNodes.first else {return}
+                selectedNode.scale = SCNVector3(0.01, 0.01, 0.01)
+                selectedNode.position = SCNVector3Zero
+                self.sceneView.scene.rootNode.addChildNode(selectedNode)
+                }
+            }
+        }
+        
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
         if let planeAnchor = anchor as? ARPlaneAnchor,
         let planeNode = node.childNodes.first,
@@ -100,6 +111,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             plane.width = CGFloat(planeAnchor.extent.x)
             plane.height = CGFloat(planeAnchor.extent.z)
             planeNode.position = SCNVector3Make(planeAnchor.center.x, 0, planeAnchor.center.z)
+        }
     }
 
     
