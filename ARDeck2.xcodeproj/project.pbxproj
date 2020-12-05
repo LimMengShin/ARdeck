@@ -9,22 +9,16 @@
 /* Begin PBXBuildFile section */
 		49C4C3C4257BEA1200146AE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4C3C3257BEA1200146AE7 /* AppDelegate.swift */; };
 		49C4C3C6257BEA1200146AE7 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 49C4C3C5257BEA1200146AE7 /* art.scnassets */; };
-		49C4C3C8257BEA1200146AE7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4C3C7257BEA1200146AE7 /* ViewController.swift */; };
 		49C4C3CB257BEA1200146AE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49C4C3C9257BEA1200146AE7 /* Main.storyboard */; };
 		49C4C3CD257BEA1400146AE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49C4C3CC257BEA1400146AE7 /* Assets.xcassets */; };
 		49C4C3D0257BEA1400146AE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49C4C3CE257BEA1400146AE7 /* LaunchScreen.storyboard */; };
 		49C4C3DB257BEA1500146AE7 /* ARDeck2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4C3DA257BEA1500146AE7 /* ARDeck2Tests.swift */; };
 		49C4C3E6257BEA1500146AE7 /* ARDeck2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4C3E5257BEA1500146AE7 /* ARDeck2UITests.swift */; };
-		49C4C401257BECCA00146AE7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4C3F7257BECCA00146AE7 /* ViewController.swift */; };
-		49C4C402257BECCA00146AE7 /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = 49C4C3F8257BECCA00146AE7 /* LICENSE.md */; };
-		49C4C403257BECCA00146AE7 /* EchoAR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4C3F9257BECCA00146AE7 /* EchoAR.swift */; };
-		49C4C404257BECCA00146AE7 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4C3FA257BECCA00146AE7 /* Entry.swift */; };
-		49C4C405257BECCA00146AE7 /* RemoteTransformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4C3FB257BECCA00146AE7 /* RemoteTransformation.swift */; };
-		49C4C406257BECCA00146AE7 /* RemoteTransformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4C3FC257BECCA00146AE7 /* RemoteTransformation.swift */; };
-		49C4C407257BECCA00146AE7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4C3FD257BECCA00146AE7 /* ViewController.swift */; };
-		49C4C408257BECCA00146AE7 /* EchoAR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4C3FE257BECCA00146AE7 /* EchoAR.swift */; };
-		49C4C409257BECCA00146AE7 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4C3FF257BECCA00146AE7 /* Entry.swift */; };
-		49C4C40A257BECCA00146AE7 /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = 49C4C400257BECCA00146AE7 /* LICENSE.md */; };
+		49C4C437257BEEF100146AE7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4C432257BEEF100146AE7 /* ViewController.swift */; };
+		49C4C438257BEEF100146AE7 /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = 49C4C433257BEEF100146AE7 /* LICENSE.md */; };
+		49C4C439257BEEF100146AE7 /* EchoAR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4C434257BEEF100146AE7 /* EchoAR.swift */; };
+		49C4C43A257BEEF100146AE7 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4C435257BEEF100146AE7 /* Entry.swift */; };
+		49C4C43B257BEEF100146AE7 /* RemoteTransformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4C436257BEEF100146AE7 /* RemoteTransformation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +42,6 @@
 		49C4C3C0257BEA1200146AE7 /* ARDeck2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARDeck2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C4C3C3257BEA1200146AE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49C4C3C5257BEA1200146AE7 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
-		49C4C3C7257BEA1200146AE7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		49C4C3CA257BEA1200146AE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		49C4C3CC257BEA1400146AE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		49C4C3CF257BEA1400146AE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -59,16 +52,11 @@
 		49C4C3E1257BEA1500146AE7 /* ARDeck2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARDeck2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C4C3E5257BEA1500146AE7 /* ARDeck2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDeck2UITests.swift; sourceTree = "<group>"; };
 		49C4C3E7257BEA1500146AE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		49C4C3F7257BECCA00146AE7 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		49C4C3F8257BECCA00146AE7 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
-		49C4C3F9257BECCA00146AE7 /* EchoAR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EchoAR.swift; sourceTree = "<group>"; };
-		49C4C3FA257BECCA00146AE7 /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
-		49C4C3FB257BECCA00146AE7 /* RemoteTransformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteTransformation.swift; sourceTree = "<group>"; };
-		49C4C3FC257BECCA00146AE7 /* RemoteTransformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RemoteTransformation.swift; path = ../../../../Downloads/echoARSwiftSDK/RemoteTransformation.swift; sourceTree = "<group>"; };
-		49C4C3FD257BECCA00146AE7 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../../../../Downloads/echoARSwiftSDK/ViewController.swift; sourceTree = "<group>"; };
-		49C4C3FE257BECCA00146AE7 /* EchoAR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EchoAR.swift; path = ../../../../Downloads/echoARSwiftSDK/EchoAR.swift; sourceTree = "<group>"; };
-		49C4C3FF257BECCA00146AE7 /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Entry.swift; path = ../../../../Downloads/echoARSwiftSDK/Entry.swift; sourceTree = "<group>"; };
-		49C4C400257BECCA00146AE7 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = LICENSE.md; path = ../../../../Downloads/echoARSwiftSDK/LICENSE.md; sourceTree = "<group>"; };
+		49C4C432257BEEF100146AE7 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		49C4C433257BEEF100146AE7 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
+		49C4C434257BEEF100146AE7 /* EchoAR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EchoAR.swift; sourceTree = "<group>"; };
+		49C4C435257BEEF100146AE7 /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		49C4C436257BEEF100146AE7 /* RemoteTransformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteTransformation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,15 +107,9 @@
 		49C4C3C2257BEA1200146AE7 /* ARDeck2 */ = {
 			isa = PBXGroup;
 			children = (
-				49C4C3FE257BECCA00146AE7 /* EchoAR.swift */,
-				49C4C3F6257BECCA00146AE7 /* echoARSwiftSDK */,
-				49C4C3FF257BECCA00146AE7 /* Entry.swift */,
-				49C4C400257BECCA00146AE7 /* LICENSE.md */,
-				49C4C3FC257BECCA00146AE7 /* RemoteTransformation.swift */,
-				49C4C3FD257BECCA00146AE7 /* ViewController.swift */,
+				49C4C431257BEEF100146AE7 /* echoARSwiftSDK */,
 				49C4C3C3257BEA1200146AE7 /* AppDelegate.swift */,
 				49C4C3C5257BEA1200146AE7 /* art.scnassets */,
-				49C4C3C7257BEA1200146AE7 /* ViewController.swift */,
 				49C4C3C9257BEA1200146AE7 /* Main.storyboard */,
 				49C4C3CC257BEA1400146AE7 /* Assets.xcassets */,
 				49C4C3CE257BEA1400146AE7 /* LaunchScreen.storyboard */,
@@ -154,17 +136,16 @@
 			path = ARDeck2UITests;
 			sourceTree = "<group>";
 		};
-		49C4C3F6257BECCA00146AE7 /* echoARSwiftSDK */ = {
+		49C4C431257BEEF100146AE7 /* echoARSwiftSDK */ = {
 			isa = PBXGroup;
 			children = (
-				49C4C3F7257BECCA00146AE7 /* ViewController.swift */,
-				49C4C3F8257BECCA00146AE7 /* LICENSE.md */,
-				49C4C3F9257BECCA00146AE7 /* EchoAR.swift */,
-				49C4C3FA257BECCA00146AE7 /* Entry.swift */,
-				49C4C3FB257BECCA00146AE7 /* RemoteTransformation.swift */,
+				49C4C432257BEEF100146AE7 /* ViewController.swift */,
+				49C4C433257BEEF100146AE7 /* LICENSE.md */,
+				49C4C434257BEEF100146AE7 /* EchoAR.swift */,
+				49C4C435257BEEF100146AE7 /* Entry.swift */,
+				49C4C436257BEEF100146AE7 /* RemoteTransformation.swift */,
 			);
-			name = echoARSwiftSDK;
-			path = ../../../../Downloads/echoARSwiftSDK;
+			path = echoARSwiftSDK;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,11 +251,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49C4C402257BECCA00146AE7 /* LICENSE.md in Resources */,
+				49C4C438257BEEF100146AE7 /* LICENSE.md in Resources */,
 				49C4C3C6257BEA1200146AE7 /* art.scnassets in Resources */,
 				49C4C3D0257BEA1400146AE7 /* LaunchScreen.storyboard in Resources */,
 				49C4C3CD257BEA1400146AE7 /* Assets.xcassets in Resources */,
-				49C4C40A257BECCA00146AE7 /* LICENSE.md in Resources */,
 				49C4C3CB257BEA1200146AE7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,16 +280,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49C4C409257BECCA00146AE7 /* Entry.swift in Sources */,
-				49C4C405257BECCA00146AE7 /* RemoteTransformation.swift in Sources */,
-				49C4C404257BECCA00146AE7 /* Entry.swift in Sources */,
-				49C4C406257BECCA00146AE7 /* RemoteTransformation.swift in Sources */,
-				49C4C401257BECCA00146AE7 /* ViewController.swift in Sources */,
-				49C4C403257BECCA00146AE7 /* EchoAR.swift in Sources */,
-				49C4C3C8257BEA1200146AE7 /* ViewController.swift in Sources */,
-				49C4C407257BECCA00146AE7 /* ViewController.swift in Sources */,
+				49C4C43B257BEEF100146AE7 /* RemoteTransformation.swift in Sources */,
+				49C4C43A257BEEF100146AE7 /* Entry.swift in Sources */,
+				49C4C437257BEEF100146AE7 /* ViewController.swift in Sources */,
+				49C4C439257BEEF100146AE7 /* EchoAR.swift in Sources */,
 				49C4C3C4257BEA1200146AE7 /* AppDelegate.swift in Sources */,
-				49C4C408257BECCA00146AE7 /* EchoAR.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
