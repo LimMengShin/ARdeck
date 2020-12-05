@@ -24,7 +24,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     var planes: [SCNNode] = []
     var echoImgEntryId = "88e5aa30-395f-4572-9beb-4427e915260c"
     var e:EchoAR!;
-    var globalNode: SCNNode!;
     
     
     override func viewDidLoad() {
@@ -36,6 +35,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
+        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
         e = EchoAR();
         let scene = SCNScene()
         /*
@@ -48,8 +48,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         */
 
         e.loadSceneFromEntryID(entryID: echoImgEntryId, completion: { (scene) in
-            guard let selectedNode = globalNode else {return}
-            //guard let selectedNode = scene.rootNode.childNodes.first else {return}
+            guard let selectedNode = scene.rootNode.childNodes.first else {return}
             
         })
         
@@ -80,50 +79,27 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     // Override to create and configure nodes for anchors added to the view's session.
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        // Place content only for anchors found by plane detection.
-        guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
-        
-        // Create a custom object to visualize the plane geometry and extent.
-        let w = CGFloat(planeAnchor.extent.x)
-        let h = CGFloat(planeAnchor.extent.z)
+        if let planeAnchor = anchor as? ARPlaneAnchor {
+        let plane = SCNPlane(width: CGFloat(planeAnchor.extent.x), height: CGFloat(planeAnchor.extent.z)) plane.firstMaterial?.diffuse.contents = UIColor(white: 1, alpha: 0.75)
 
-        //create a new plane
-        let plane = SCNPlane(width: w, height: h)
-        
-        //set the color of the plane
-        //plane.materials.first?.diffuse.contents = planeColor!
-
-        //create a plane node from the scene plane
         let planeNode = SCNNode(geometry: plane)
 
-        //get the x, y, and z locations of the plane anchor
-        let x = CGFloat(planeAnchor.center.x)
-        let y = CGFloat(planeAnchor.center.y)
-        let z = CGFloat(planeAnchor.center.z)
-
-        //set the plane position to the x,y,z postion
-        planeNode.position = SCNVector3(x,y,z)
-
-        //turn th plane node so it lies flat vertically, rather than stands up vertically
+        planeNode.position = SCNVector3Make(planeAnchor.center.x, planeAnchor.center.x, planeAnchor.center.z)
         planeNode.eulerAngles.x = -.pi / 2
-        
-        e.loadSceneFromEntryID(entryID: echoImgEntryId, completion: { (scene) in
-            guard let selectedNode = scene.rootNode.childNodes.first else {return}
-            selectedNode.position = SCNVector3(x,y,z)
-            selectedNode.eulerAngles = planeNode.eulerAngles
-            self.sceneView.scene.rootNode.addChildNode(selectedNode)
-        })
-        //set the name of the plane
-        planeNode.name = "plane"
 
-        //add plane to scene
         node.addChildNode(planeNode)
-        globalNode = planeNode
-        
-        
+      
         //save plane (so it can be edited later)
         planes.append(planeNode)
     
+    }
+    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
+        if let planeAnchor = anchor as? ARPlaneAnchor,
+        let planeNode = node.childNodes.first,
+        let plane = planeNode.geometry as? SCNPlane {
+            plane.width = CGFloat(planeAnchor.extent.x)
+            plane.height = CGFloat(planeAnchor.extent.z)
+            planeNode.position = SCNVector3Make(planeAnchor.center.x, 0, planeAnchor.center.z)
     }
 
     
