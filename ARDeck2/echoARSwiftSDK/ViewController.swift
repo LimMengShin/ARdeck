@@ -93,12 +93,24 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         //save plane (so it can be edited later)
         planes.append(planeNode)
             
+        let w = CGFloat(planeAnchor.extent.x)
+        let h = CGFloat(planeAnchor.extent.z)
+        let planeB = SCNPlane(width: w, height: h)
+        let planeNodeB = SCNNode(geometry: planeB)
+        let x = CGFloat(planeAnchor.center.x)
+        let y = CGFloat(planeAnchor.center.y)
+        let z = CGFloat(planeAnchor.center.z)
+        planeNodeB.position = SCNVector3(x,y,z)
+        planeNodeB.eulerAngles.x = -.pi / 2
+
+            
         if !isSceneRendered {
             isSceneRendered = true
             e.loadSceneFromEntryID(entryID: echoImgEntryId, completion: { (scene) in
                 guard let selectedNode = scene.rootNode.childNodes.first else {return}
                 selectedNode.scale = SCNVector3(0.01, 0.01, 0.01)
-                selectedNode.position = SCNVector3Zero
+                selectedNode.position = SCNVector3(x,y,z)
+                selectedNode.eulerAngles = planeNodeB.eulerAngles
                 self.sceneView.scene.rootNode.addChildNode(selectedNode)
                 }
             }
