@@ -24,6 +24,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     var planes: [SCNNode] = []
     var echoImgEntryId = "88e5aa30-395f-4572-9beb-4427e915260c"
     var e:EchoAR!;
+    var globalNode: SCNNode!;
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +46,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             }
         }
         */
+
+        e.loadSceneFromEntryID(entryID: echoImgEntryId, completion: { (scene) in
+            guard let selectedNode = globalNode else {return}
+            //guard let selectedNode = scene.rootNode.childNodes.first else {return}
+            
+        })
         
         // Set the scene to the view
         sceneView.scene=scene;
@@ -110,7 +118,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
         //add plane to scene
         node.addChildNode(planeNode)
-        
+        globalNode = planeNode
         
         
         //save plane (so it can be edited later)
