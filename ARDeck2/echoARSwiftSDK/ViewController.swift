@@ -24,6 +24,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     var planes: [SCNNode] = []
     var echoImgEntryId = "88e5aa30-395f-4572-9beb-4427e915260c"
     var e:EchoAR!;
+    var isSceneRendered = false
     
     
     override func viewDidLoad() {
@@ -101,7 +102,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let y = CGFloat(planeAnchor.center.y)
         let z = CGFloat(planeAnchor.center.z)
         planeNodeB.position = SCNVector3(x,y,z)
-        planeNodeB.eulerAngles.x = -.pi / 2
+        planeNodeB.eulerAngles.x = 0
 
             
         if !isSceneRendered {
@@ -112,10 +113,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 selectedNode.position = SCNVector3(x,y,z)
                 selectedNode.eulerAngles = planeNodeB.eulerAngles
                 self.sceneView.scene.rootNode.addChildNode(selectedNode)
-                }
+                })
             }
         }
-        
+    }
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
         if let planeAnchor = anchor as? ARPlaneAnchor,
         let planeNode = node.childNodes.first,
