@@ -30,12 +30,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Set the view's delegate
         sceneView.delegate = self
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
+        //let scene = SCNScene(named: "art.scnassets/ship.scn")!
         
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
-        let e = EchoAR();
-        //let scene = SCNScene()
+        e = EchoAR();
+        let scene = SCNScene()
         /*
         e.loadAllNodes(){ (nodes) in
             for node in nodes{
@@ -44,10 +44,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             }
         }
         */
-        e.loadSceneFromEntryID(entryID: echoImgEntryId, completion: { (scene) in
-            guard let selectedNode = scene.rootNode.childNodes.first else {return}
-            
-        })
         
         // Set the scene to the view
         sceneView.scene=scene;
@@ -102,7 +98,13 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
         //turn th plane node so it lies flat vertically, rather than stands up vertically
         planeNode.eulerAngles.x = -.pi / 2
-
+        
+        e.loadSceneFromEntryID(entryID: echoImgEntryId, completion: { (scene) in
+            guard let selectedNode = scene.rootNode.childNodes.first else {return}
+            selectedNode.position = SCNVector3(x,y,z)
+            selectedNode.eulerAngles = planeNode.eulerAngles
+            self.sceneView.scene.rootNode.addChildNode(selectedNode)
+        })
         //set the name of the plane
         planeNode.name = "plane"
 
