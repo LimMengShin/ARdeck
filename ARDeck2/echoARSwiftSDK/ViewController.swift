@@ -30,6 +30,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // lighting
         sceneView.autoenablesDefaultLighting = true
         sceneView.automaticallyUpdatesLighting = true
+        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
         
         // Create a new scene
         let scene = SCNScene()
@@ -86,28 +87,19 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     // MARK: - ARSCNViewDelegate
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        if let planeAnchor = anchor as? ARPlaneAnchor {
-            let plane = SCNPlane(width: CGFloat(planeAnchor.extent.x), height: CGFloat(planeAnchor.extent.z))
-            plane.firstMaterial?.diffuse.contents = UIColor(white: 1, alpha: 0.5)
-            //plane.firstMaterial?.specular.contents = UIColor.white
-            let planeNode = SCNNode(geometry: plane)
+        if let planeAnchor = anchor as? ARPlaneAnchor,
+        let planeNode = node.childNodes.first,
+        let plane = planeNode.geometry as? SCNPlane {
+            plane.width = CGFloat(planeAnchor.extent.x)
+            plane.height = CGFloat(planeAnchor.extent.z)
             planeNode.position = SCNVector3Make(planeAnchor.center.x, 0, planeAnchor.center.z)
-            planeNode.eulerAngles.x = -.pi / 2
-            node.addChildNode(planeNode)
             e.loadSceneFromEntryID(entryID: echoImgEntryId, completion: { (scene) in
-                guard let selected = scene.rootNode.childNodes.first else {return}                                                        
-                self.sceneView.scene.rootNode.addChildNode(planeNode)
-            })
-
-            if !sceneRendered {
-                sceneRendered = true
-                
-                //let mainSceneClone = sceneNode.clone()
-                sceneNode.scale = SCNVector3(0.01, 0.01, 0.01)
-                sceneNode.position = SCNVector3Zero
-                node.addChildNode(sceneNode)
-                
-            }
+                guard let selectedNode = scene.rootNode.childNodes.first else {return}
+                selectedNode.scale = SCNVector3(0.2, 0.2, 0.2)
+                selectedNode.position = CNVector3(planeAnchor.center.x,planeAnchor.center.y,planeAnchor.center.z)
+                self.sceneView.scene.rootNode.addChildNode(selectedNode)
+            })                                                             
+        }
             
             /*
             if !wasAdded {
