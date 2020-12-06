@@ -25,6 +25,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     var echoImgEntryId = "88e5aa30-395f-4572-9beb-4427e915260c"
     var e:EchoAR!;
     var isSceneRendered = false
+    var sceneNode = SCNNode()
     
     
     override func viewDidLoad() {
@@ -74,6 +75,27 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Pause the view's session
         sceneView.session.pause()
     }
+    
+    private func loadScene() {
+        
+        let childNodes = scene.rootNode.childNodes
+        for childNode in childNodes {
+            sceneNode.addChildNode(childNode)
+        }
+    }
+    
+    private func addScene(position: SCNVector3) {
+        sceneNode.scale = SCNVector3(0.02, 0.02, 0.02)
+        sceneNode.position = position
+
+        sceneView.scene.rootNode.addChildNode(sceneNode)
+    }
+ 
+    private func addScene(transform: SCNMatrix4) {
+        sceneNode.scale = SCNVector3(0.02, 0.02, 0.02)
+        sceneNode.transform = transform
+        sceneView.scene.rootNode.addChildNode(sceneNode)
+    }
 
     // MARK: - ARSCNViewDelegate
     
@@ -97,9 +119,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         if !isSceneRendered {
             isSceneRendered = true
             e.loadSceneFromEntryID(entryID: echoImgEntryId, completion: { (scene) in
-                guard let selectedNode = scene.rootNode.childNodes.first else {return}
+                guard let selectedNode = sceneNode else {return}
                 selectedNode.scale = SCNVector3(0.01, 0.01, 0.01)
-                selectedNode.position = SCNVector3(planeAnchor.center.x,planeAnchor.center.x,planeAnchor.center.z)
+                selectedNode.position = SCNVector3Zero
                 self.sceneView.scene.rootNode.addChildNode(selectedNode)
                 })
             }
