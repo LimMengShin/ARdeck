@@ -33,11 +33,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Create a new scene
         let scene = SCNScene()
+        e = EchoAR()
         
         // Set the scene to the view
         sceneView.scene = scene
         
-        self.loadScene()
+        //self.loadScene()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,13 +64,13 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         super.didReceiveMemoryWarning()
         // Release any cached data, images, etc that aren't in use.
     }
-
+/*
     private func loadScene() {
         e.loadSceneFromEntryID(entryID: echoImgEntryId, completion: { (scene) in
             guard let selected = scene.rootNode.childNodes.first else {return}
             self.sceneView.scene.rootNode.addChildNode(selectedNode)
         })
-    }
+    }*/
     private func addScene(position: SCNVector3) {
         sceneNode.scale = SCNVector3(0.02, 0.02, 0.02)
         sceneNode.position = position
@@ -93,6 +94,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             planeNode.position = SCNVector3Make(planeAnchor.center.x, 0, planeAnchor.center.z)
             planeNode.eulerAngles.x = -.pi / 2
             node.addChildNode(planeNode)
+            e.loadSceneFromEntryID(entryID: echoImgEntryId, completion: { (scene) in
+                guard let selected = scene.rootNode.childNodes.first else {return}                                                        
+                self.sceneView.scene.rootNode.addChildNode(planeNode)
+            })
 
             if !sceneRendered {
                 sceneRendered = true
@@ -101,6 +106,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 sceneNode.scale = SCNVector3(0.01, 0.01, 0.01)
                 sceneNode.position = SCNVector3Zero
                 node.addChildNode(sceneNode)
+                
             }
             
             /*
