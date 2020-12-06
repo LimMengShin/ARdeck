@@ -68,7 +68,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     private func loadScene() {
         e.loadSceneFromEntryID(entryID: echoImgEntryId, completion: { (scene) in
-            let scene = scene
+            let scene = scene //fix
             let childNodes = scene.rootNode.childNodes
             for childNode in childNodes {
                 sceneNode.addChildNode(childNode)
