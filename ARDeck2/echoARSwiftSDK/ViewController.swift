@@ -47,11 +47,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             }
         }
         */
-
-        e.loadSceneFromEntryID(entryID: echoImgEntryId, completion: { (scene) in
-            guard let selectedNode = scene.rootNode.childNodes.first else {return}
-            
-        })
         
         // Set the scene to the view
         sceneView.scene=scene;
@@ -100,7 +95,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             e.loadSceneFromEntryID(entryID: echoImgEntryId, completion: { (scene) in
                 guard let selectedNode = scene.rootNode.childNodes.first else {return}
                 selectedNode.scale = SCNVector3(0.01, 0.01, 0.01)
-                selectedNode.position = SCNVector3(planeAnchor.center.x, - 5,planeAnchor.center.z - 5)
+                selectedNode.position = SCNVector3(planeAnchor.center.x, -5,planeAnchor.center.z - 5)
                 self.sceneView.scene.rootNode.addChildNode(selectedNode)
                 })
             }
